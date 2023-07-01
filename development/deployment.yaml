@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: rabbitmq
+  name: rabbitmq
+  namespace: rabbitmq
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rabbitmq
+  template:
+    metadata:
+      labels:
+        app: rabbitmq
+
+    spec:
+      containers:
+        - name: rabbitmq
+          image: rabbitmq:3.8.2-management
+          ports:
+            - name: http
+              containerPort: 15672
+              protocol: TCP
+            - name: amqp
+              containerPort: 5672
+              protocol: TCP
+          volumeMounts:
+            - name: rabbitmq-data
+              mountPath: /var/lib/rabbitmq
+          env:
+            - name: RABBITMQ_DEFAULT_USER
+              value: "gamepay"
+            - name: RABBITMQ_DEFAULT_PASS
+              value: "nRtU2UMIbz26A7EX"
+      volumes:
+      - name: rabbitmq-data
+        persistentVolumeClaim:
+          claimName: rabbitmq-data

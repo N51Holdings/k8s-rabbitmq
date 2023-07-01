@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rabbitmq
+spec:
+  destination:
+    name: in-cluster
+    namespace: rabbitmq
+    server: ''
+  source:
+    path: production
+    repoURL: 'git@bitbucket.org:gamepay-tech/gamepay-k8s-rabbitmq.git'
+    targetRevision: main
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
