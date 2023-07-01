@@ -9,7 +9,7 @@ spec:
     server: ''
   source:
     path: production
-    repoURL: 'git@bitbucket.org:gamepay-tech/gamepay-k8s-rabbitmq.git'
+    repoURL: 'git@github.com:tradesavvy/k8s-rabbitmq.git'
     targetRevision: main
   project: default
   syncPolicy:
