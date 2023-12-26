@@ -19,6 +19,7 @@ spec:
       containers:
         - name: rabbitmq
           image: rabbitmq:3.8.2-management
+          network_mode: "host"
           ports:
             - name: http
               containerPort: 15672
@@ -34,6 +35,7 @@ spec:
               value: "laabhum"
             - name: RABBITMQ_DEFAULT_PASS
               value: "nRtU2UMIbz26A7EX"
+
       volumes:
       - name: rabbitmq-data
         persistentVolumeClaim:
