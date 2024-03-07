@@ -30,7 +30,7 @@ spec:
               mountPath: /var/lib/rabbitmq
           env:
             - name: RABBITMQ_DEFAULT_USER
-              value: "gamepay"
+              value: "n51user"
             - name: RABBITMQ_DEFAULT_PASS
               value: "3fqH7nz9wY2gIsmX"
       volumes:
