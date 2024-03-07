@@ -32,7 +32,7 @@ spec:
               mountPath: /var/lib/rabbitmq
           env:
             - name: RABBITMQ_DEFAULT_USER
-              value: "laabhum"
+              value: "n51user"
             - name: RABBITMQ_DEFAULT_PASS
               value: "nRtU2UMIbz26A7EX"
 
