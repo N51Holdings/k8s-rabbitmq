@@ -13,4 +13,4 @@ spec:
     - name: amqp
       port: 5672
       targetPort: 5672
-  type: LoadBalancer
+  type: ClusterIP
