@@ -7,6 +7,8 @@ metadata:
   namespace: rabbitmq
 spec:
   replicas: 1
+  strategy:
+    type: Recreate
   selector:
     matchLabels:
       app: rabbitmq
@@ -31,9 +33,15 @@ spec:
               mountPath: /var/lib/rabbitmq
           env:
             - name: RABBITMQ_DEFAULT_USER
-              value: "n51user"
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-default-user
+                  key: username
             - name: RABBITMQ_DEFAULT_PASS
-              value: "kzwekHFt5PnwN4cr"
+              valueFrom:
+                secretKeyRef:
+                  name: rabbitmq-default-user
+                  key: password
       volumes:
       - name: rabbitmq-data
         persistentVolumeClaim:
